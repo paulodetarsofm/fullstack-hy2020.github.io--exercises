@@ -1,6 +1,6 @@
 # 0.4: New note diagram
 
-Diagram depicting the situation where the user creates a new note on the specific page.
+diagram depicting the situation where the user creates a new note on the page https://studies.cs.helsinki.fi/exampleapp/notes by writing something into the text field and clicking the _Save_ button.
 
 ```mermaid
 sequenceDiagram
