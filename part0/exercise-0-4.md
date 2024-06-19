@@ -20,4 +20,5 @@ sequenceDiagram
 
 ---
 
-[← Back](../README.md)
+- [🏠 Summary](../README.md)
+- [➡️ Exercise 0.5](./exercise-0-5.md)

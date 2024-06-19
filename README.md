@@ -12,6 +12,7 @@ https://fullstackopen.com/
 - ### 0.2: CSS \*
 - ### 0.3: HTML forms \*
 - ### [0.4: New note diagram](./part0/exercise-0-4.md)
+- ### [0.5: Single page app diagram](./part0/exercise-0-5.md)
 
 ---
 
