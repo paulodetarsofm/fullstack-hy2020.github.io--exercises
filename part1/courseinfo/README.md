@@ -4,6 +4,7 @@
 - [Exercise 1.2: Course Information, step 2](#step-2)
 - [Exercise 1.3: Course Information, step 3](#step-3)
 - [Exercise 1.4: Course Information, step 4](#step-4)
+- [Exercise 1.5: Course Information, step 5](#step-5)
 
 ## <a id="step-1"></a> Exercise 1.1: Course Information, step 1
 
@@ -138,5 +139,33 @@ const App = () => {
       <Total parts={parts} />
     </div>
   );
+};
+```
+
+## <a id="step-5"></a> Exercise 1.5: Course Information, step 5
+
+Change the course and its parts into a single JavaScript object:
+
+```js
+const App = () => {
+  const course = {
+    name: "Half Stack application development",
+    parts: [
+      {
+        name: "Fundamentals of React",
+        exercises: 10,
+      },
+      {
+        name: "Using props to pass data",
+        exercises: 7,
+      },
+      {
+        name: "State of a component",
+        exercises: 14,
+      },
+    ],
+  };
+
+  return <div>...</div>;
 };
 ```
