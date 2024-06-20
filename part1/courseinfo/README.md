@@ -1,4 +1,7 @@
-# Exercise 1.1: Course Information, step 1
+- [Exercise 1.1: Course Information, step 1](#step-1)
+- [Exercise 1.1: Course Information, step 2](#step-2)
+
+# <a id="step-1"></a> Exercise 1.1: Course Information, step 1
 
 Use Vite to initialize a new application. Modify `main.jsx` to match the following:
 
@@ -49,3 +52,19 @@ Refactor the code creating three new components: `Header`, `Content`, and `Total
 `Header` takes care of rendering the name of the course, `Content` renders the parts and their number of exercises and `Total` renders the total number of exercises.
 
 Define the new components in the file `App.jsx`.
+
+# <a id="step-2"></a> Exercise 1.2: Course Information, step 2
+
+Refactor the `Content` component so that it does not render any names of parts or their number of exercises by itself. Instead, it only renders three `Part` components of which each renders the name and number of exercises of one part.
+
+```js
+const Content = ... {
+  return (
+    <div>
+      <Part .../>
+      <Part .../>
+      <Part .../>
+    </div>
+  )
+}
+```
