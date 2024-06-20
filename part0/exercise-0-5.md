@@ -8,31 +8,34 @@ sequenceDiagram
     participant Server
 
     Browser->>Server: GET https://studies.cs.helsinki.fi/exampleapp/spa
+
     activate Server
     Server-->>Browser: HTML document - `text/html`
     deactivate Server
 
     Browser->>Server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+
     activate Server
     Server-->>Browser: CSS file - `text/css`
     deactivate Server
 
     Browser->>Server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+
     activate Server
     Server-->>Browser: JS file - `application/javascript`
     deactivate Server
 
-    Note right of Browser: The browser executes the JS code that fetches the JSON from the server via AJAX
+    Note over Browser: The browser executes the JS code that fetches the JSON from the server via AJAX
 
     Browser->>Server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+
     activate Server
     Server-->>Browser: JSON file - `application/json`
     deactivate Server
 
-    Note right of Browser: The browser executes the callback function that triggers the `redrawNotes()` function, which renders the notes
+    Note over Browser: The browser executes the callback function that renders the notes
 ```
 
 ---
 
-- [🏠 Summary](../README.md)
-- [⬅️ Exercise 0.4](./exercise-0-4.md)
+[🏠 Summary](../README.md)
