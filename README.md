@@ -17,4 +17,4 @@ https://fullstackopen.com/
 
 ## Part 1
 
-- ### [1.1: Course Information, step 1](./part1/courseinfo/README.md)
+- ### [1.1: Course Information, step 1](./part1/courseinfo-step1/README.md)
