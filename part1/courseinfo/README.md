@@ -169,3 +169,7 @@ const App = () => {
   return <div>...</div>;
 };
 ```
+
+---
+
+[🏠 Summary](../../README.md)

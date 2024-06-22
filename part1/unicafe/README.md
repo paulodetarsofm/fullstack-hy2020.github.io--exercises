@@ -115,3 +115,7 @@ The application's state should still be kept in the root `App` component.
 Display the statistics in an HTML table, so that your application looks roughly like this:
 
 ![View statistics in a table](./docs/unicafe-application-table.png)
+
+---
+
+[🏠 Summary](../../README.md)
