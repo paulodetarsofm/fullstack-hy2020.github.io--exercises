@@ -7,12 +7,19 @@ const Button = ({ handleClick, label }) => {
 }
 
 const Statistics = ({ good, neutral, bad }) => {
+  const totalFeedback = good + neutral + bad
+
+  if (totalFeedback === 0) {
+    return (
+      <p>No feedback given</p>
+    )
+  }
+
   // Each type of vote has a different weight to determine the average
   const GOOD_WEIGHT = 1;
   const NEUTRAL_WEIGHT = 0;
   const BAD_WEIGHT = -1;
 
-  const totalFeedback = good + neutral + bad
   const totalWeightedScore = good * GOOD_WEIGHT + neutral * NEUTRAL_WEIGHT + bad * BAD_WEIGHT
   const average = (totalWeightedScore && totalWeightedScore / totalFeedback) ?? 0
   const positiveFeedbackPercentage = ((good && good / totalFeedback) ?? 0) * 100

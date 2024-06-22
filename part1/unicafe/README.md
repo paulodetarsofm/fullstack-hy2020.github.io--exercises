@@ -3,6 +3,7 @@
 - [Exercise 1.6: Unicafe, step 1](#step-1)
 - [Exercise 1.7: Unicafe, step 2](#step-2)
 - [Exercise 1.8: Unicafe, step 3](#step-3)
+- [Exercise 1.9: Unicafe, step 4](#step-4)
 
 ## <a id="step-1"></a> Exercise 1.6: Unicafe, step 1
 
@@ -74,3 +75,9 @@ const App = () => {
   )
 }
 ```
+
+## <a id="step-4"></a> Exercise 1.9: Unicafe, step 4
+
+Change your application to display statistics only once feedback has been gathered.
+
+![Application without statistics](./docs/unicafe-application-no-feedback.png)
