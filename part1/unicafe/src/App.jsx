@@ -25,20 +25,25 @@ const Statistics = ({ good, neutral, bad }) => {
   const positiveFeedbackPercentage = ((good && good / totalFeedback) ?? 0) * 100
 
   return (
-    <>
-      <StatisticLine text='good' value={good} />
-      <StatisticLine text='neutral' value={neutral} />
-      <StatisticLine text='bad' value={bad} />
-      <StatisticLine text='all' value={totalFeedback} />
-      <StatisticLine text='average' value={average} />
-      <StatisticLine text='positive' value={`${positiveFeedbackPercentage} %`} />
-    </>
+    <table>
+      <tbody>
+        <StatisticLine text='good' value={good} />
+        <StatisticLine text='neutral' value={neutral} />
+        <StatisticLine text='bad' value={bad} />
+        <StatisticLine text='all' value={totalFeedback} />
+        <StatisticLine text='average' value={average} />
+        <StatisticLine text='positive' value={`${positiveFeedbackPercentage} %`} />
+      </tbody>
+    </table>
   )
 }
 
 const StatisticLine = ({ text, value }) => {
   return (
-    <p>{text} {value}</p>
+    <tr>
+      <td>{text}</td>
+      <td>{value}</td>
+    </tr>
   )
 }
 

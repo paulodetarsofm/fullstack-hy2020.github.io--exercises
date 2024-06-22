@@ -5,6 +5,7 @@
 - [Exercise 1.8: Unicafe, step 3](#step-3)
 - [Exercise 1.9: Unicafe, step 4](#step-4)
 - [Exercise 1.10: Unicafe, step 5](#step-5)
+- [Exercise 1.11: Unicafe, step 6](#step-6)
 
 ## <a id="step-1"></a> Exercise 1.6: Unicafe, step 1
 
@@ -108,3 +109,9 @@ const Statistics = (props) => {
 ```
 
 The application's state should still be kept in the root `App` component.
+
+## <a id="step-6"></a> Exercise 1.11: Unicafe, step 6
+
+Display the statistics in an HTML table, so that your application looks roughly like this:
+
+![View statistics in a table](./docs/unicafe-application-table.png)
