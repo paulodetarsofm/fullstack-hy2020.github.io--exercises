@@ -4,6 +4,7 @@
 - [Exercise 1.7: Unicafe, step 2](#step-2)
 - [Exercise 1.8: Unicafe, step 3](#step-3)
 - [Exercise 1.9: Unicafe, step 4](#step-4)
+- [Exercise 1.10: Unicafe, step 5](#step-5)
 
 ## <a id="step-1"></a> Exercise 1.6: Unicafe, step 1
 
@@ -81,3 +82,29 @@ const App = () => {
 Change your application to display statistics only once feedback has been gathered.
 
 ![Application without statistics](./docs/unicafe-application-no-feedback.png)
+
+## <a id="step-5"></a> Exercise 1.10: Unicafe, step 5
+
+Extract the following two components:
+
+- _Button handles the functionality of each feedback submission button._
+
+- _StatisticLine for displaying a single statistic, e.g. the average score._
+
+To be clear: the `StatisticLine` component always displays a single statistic, meaning that the application uses multiple components for rendering all of the statistics:
+
+```js
+const Statistics = (props) => {
+  /// ...
+  return(
+    <div>
+      <StatisticLine text="good" value ={...} />
+      <StatisticLine text="neutral" value ={...} />
+      <StatisticLine text="bad" value ={...} />
+      // ...
+    </div>
+  )
+}
+```
+
+The application's state should still be kept in the root `App` component.
