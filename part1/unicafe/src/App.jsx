@@ -1,12 +1,35 @@
 import { useState } from 'react'
 
-const Button = ({handleClick, label }) => {
+const Button = ({ handleClick, label }) => {
   return (
     <button type='button' onClick={handleClick}>{label}</button>
   )
 }
 
-const Statistic = ({label, value }) => {
+const Statistics = ({ good, neutral, bad }) => {
+  // Each type of vote has a different weight to determine the average
+  const GOOD_WEIGHT = 1;
+  const NEUTRAL_WEIGHT = 0;
+  const BAD_WEIGHT = -1;
+
+  const totalFeedback = good + neutral + bad
+  const totalWeightedScore = good * GOOD_WEIGHT + neutral * NEUTRAL_WEIGHT + bad * BAD_WEIGHT
+  const average = (totalWeightedScore && totalWeightedScore / totalFeedback) ?? 0
+  const positiveFeedbackPercentage = ((good && good / totalFeedback) ?? 0) * 100
+
+  return (
+    <>
+      <Statistic label='good' value={good} />
+      <Statistic label='neutral' value={neutral} />
+      <Statistic label='bad' value={bad} />
+      <Statistic label='all' value={totalFeedback} />
+      <Statistic label='average' value={average} />
+      <Statistic label='positive' value={`${positiveFeedbackPercentage} %`} />
+    </>
+  )
+}
+
+const Statistic = ({ label, value }) => {
   return (
     <p>{label} {value}</p>
   )
@@ -30,34 +53,15 @@ const App = () => {
     setBad(bad + 1)
   }
 
-  // Each type of vote has a different weight to determine the average
-  const GOOD_WEIGHT = 1;
-  const NEUTRAL_WEIGHT = 0;
-  const BAD_WEIGHT = -1;
-
-  const totalFeedback = good + neutral + bad
-
-  const totalWeightedScore = good * GOOD_WEIGHT + neutral * NEUTRAL_WEIGHT + bad * BAD_WEIGHT
-  const average = (totalWeightedScore && totalWeightedScore / totalFeedback) ?? 0
-
-  const positiveFeedbackPercentage = ((good && good / totalFeedback) ?? 0) * 100
-
   return (
     <>
       <h1>give feedback</h1>
-
       <Button handleClick={addGoodVote} label='good' />
       <Button handleClick={addNeutralVote} label='neutral' />
       <Button handleClick={addBadVote} label='bad' />
 
       <h1>statistics</h1>
-
-      <Statistic label='good' value={good} />
-      <Statistic label='neutral' value={neutral} />
-      <Statistic label='bad' value={bad} />
-      <Statistic label='all' value={totalFeedback} />
-      <Statistic label='average' value={average} />
-      <Statistic label='positive' value={`${positiveFeedbackPercentage} %`} />
+      <Statistics good={good} neutral={neutral} bad={bad} />
     </>
   )
 }

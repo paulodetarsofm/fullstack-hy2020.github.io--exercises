@@ -2,6 +2,7 @@
 
 - [Exercise 1.6: Unicafe, step 1](#step-1)
 - [Exercise 1.7: Unicafe, step 2](#step-2)
+- [Exercise 1.8: Unicafe, step 3](#step-3)
 
 ## <a id="step-1"></a> Exercise 1.6: Unicafe, step 1
 
@@ -45,3 +46,31 @@ export default App;
 Expand your application so that it shows more statistics about the gathered feedback: the total number of collected feedback, the average score (good: 1, neutral: 0, bad: -1) and the percentage of positive feedback.
 
 ![Application with more statistics](./docs/unicafe-application-statistics.png)
+
+## <a id="step-3"></a> Exercise 1.8: Unicafe, step 3
+
+Refactor your application so that displaying the statistics is extracted into its own `Statistics` component. The state of the application should remain in the `App` root component.
+
+Remember that components should not be defined inside other components:
+
+```js
+// a proper place to define a component
+const Statistics = (props) => {
+  // ...
+}
+
+const App = () => {
+  const [good, setGood] = useState(0)
+  const [neutral, setNeutral] = useState(0)
+  const [bad, setBad] = useState(0)
+
+  // do not define a component within another component
+  const Statistics = (props) => {
+    // ...
+  }
+
+  return (
+    // ...
+  )
+}
+```
