@@ -1,5 +1,11 @@
 import { useState } from 'react'
 
+const Button = ({ handleClick, label }) => {
+  return (
+    <button type='button' onClick={handleClick}>{label}</button>
+  )
+}
+
 const App = () => {
   const anecdotes = [
     'If it hurts, do it more often.',
@@ -12,7 +18,10 @@ const App = () => {
     'The only way to go fast, is to go well.'
   ]
 
+  const initialVotes = new Uint8Array(anecdotes.length)
+
   const [selected, setSelected] = useState(0)
+  const [votes, setVote] = useState(initialVotes)
 
   const setNextAnecdote = () => {
     // No need to change if there is only one element
@@ -30,10 +39,18 @@ const App = () => {
     setSelected(nextAnecdote)
   }
 
+  const addVote = () => {
+    const updatedVotes = [...votes]
+    updatedVotes[selected] += 1
+
+    setVote(updatedVotes)
+  }
+
   return (
     <>
       <p>{anecdotes[selected]}</p>
-      <button type='button' onClick={setNextAnecdote}>next anecdote</button>
+      <Button handleClick={addVote} label='vote' />
+      <Button handleClick={setNextAnecdote} label='next anecdote' />
     </>
   )
 }
