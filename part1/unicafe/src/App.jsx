@@ -6,9 +6,9 @@ const Button = ({handleClick, label }) => {
   )
 }
 
-const Statistic = ({type, total }) => {
+const Statistic = ({label, value }) => {
   return (
-    <p>{type} {total}</p>
+    <p>{label} {value}</p>
   )
 }
 
@@ -30,6 +30,18 @@ const App = () => {
     setBad(bad + 1)
   }
 
+  // Each type of vote has a different weight to determine the average
+  const GOOD_WEIGHT = 1;
+  const NEUTRAL_WEIGHT = 0;
+  const BAD_WEIGHT = -1;
+
+  const totalFeedback = good + neutral + bad
+
+  const totalWeightedScore = good * GOOD_WEIGHT + neutral * NEUTRAL_WEIGHT + bad * BAD_WEIGHT
+  const average = (totalWeightedScore && totalWeightedScore / totalFeedback) ?? 0
+
+  const positiveFeedbackPercentage = ((good && good / totalFeedback) ?? 0) * 100
+
   return (
     <>
       <h1>give feedback</h1>
@@ -40,9 +52,12 @@ const App = () => {
 
       <h1>statistics</h1>
 
-      <Statistic type='good' total={good} />
-      <Statistic type='neutral' total={neutral} />
-      <Statistic type='bad' total={bad} />
+      <Statistic label='good' value={good} />
+      <Statistic label='neutral' value={neutral} />
+      <Statistic label='bad' value={bad} />
+      <Statistic label='all' value={totalFeedback} />
+      <Statistic label='average' value={average} />
+      <Statistic label='positive' value={`${positiveFeedbackPercentage} %`} />
     </>
   )
 }

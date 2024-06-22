@@ -1,6 +1,7 @@
 # Part 1 - Exercise Unicafe
 
 - [Exercise 1.6: Unicafe, step 1](#step-1)
+- [Exercise 1.7: Unicafe, step 2](#step-2)
 
 ## <a id="step-1"></a> Exercise 1.6: Unicafe, step 1
 
@@ -38,3 +39,9 @@ const App = () => {
 
 export default App;
 ```
+
+## <a id="step-2"></a> Exercise 1.7: Unicafe, step 2
+
+Expand your application so that it shows more statistics about the gathered feedback: the total number of collected feedback, the average score (good: 1, neutral: 0, bad: -1) and the percentage of positive feedback.
+
+![Application with more statistics](./docs/unicafe-application-statistics.png)
