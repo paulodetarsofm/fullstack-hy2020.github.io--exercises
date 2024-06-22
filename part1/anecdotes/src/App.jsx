@@ -1,8 +1,21 @@
 import { useState } from 'react'
 
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max)
+}
+
 const Button = ({ handleClick, label }) => {
   return (
     <button type='button' onClick={handleClick}>{label}</button>
+  )
+}
+
+const Anectode = ({ anecdote, votes }) => {
+  return (
+    <>
+      <p>{anecdote}</p>
+      <p>has {votes} {votes === 1 ? 'vote' : 'votes'}</p>
+    </>
   )
 }
 
@@ -18,14 +31,15 @@ const App = () => {
     'The only way to go fast, is to go well.'
   ]
 
+  const initialSelected = getRandomInt(anecdotes.length);
   const initialVotes = new Uint8Array(anecdotes.length)
 
-  const [selected, setSelected] = useState(0)
+  const [selected, setSelected] = useState(initialSelected)
   const [votes, setVote] = useState(initialVotes)
 
   const setNextAnecdote = () => {
-    // No need to change if there is only one element
-    if (anecdotes.length === 1) {
+    // No need to change if there is only one element or if there is none
+    if (anecdotes.length <= 1) {
       return;
     }
 
@@ -33,7 +47,7 @@ const App = () => {
     let nextAnecdote;
 
     do {
-      nextAnecdote = Math.floor(Math.random() * anecdotes.length);
+      nextAnecdote = getRandomInt(anecdotes.length);
     } while (nextAnecdote === selected);
 
     setSelected(nextAnecdote)
@@ -46,11 +60,26 @@ const App = () => {
     setVote(updatedVotes)
   }
 
+  const anecdoteOfTheDay = {
+    anecdote: anecdotes[selected],
+    votes: votes[selected]
+  }
+
+  const mostVotedIndex = votes.indexOf(Math.max(...votes));
+  const mostVotedAnecdote = {
+    anecdote: anecdotes[mostVotedIndex],
+    votes: votes[mostVotedIndex]
+  }
+
   return (
     <>
-      <p>{anecdotes[selected]}</p>
+      <h1>Anecdote of the day</h1>
+      <Anectode anecdote={anecdoteOfTheDay.anecdote} votes={anecdoteOfTheDay.votes} />
       <Button handleClick={addVote} label='vote' />
       <Button handleClick={setNextAnecdote} label='next anecdote' />
+
+      <h1>Anecdote with most votes</h1>
+      <Anectode anecdote={mostVotedAnecdote.anecdote} votes={mostVotedAnecdote.votes} />
     </>
   )
 }

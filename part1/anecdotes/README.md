@@ -2,6 +2,7 @@
 
 - [Exercise 1.12: Anecdotes, step 1](#step-1)
 - [Exercise 1.13: Anecdotes, step 2](#step-2)
+- [Exercise 1.14: Anecdotes, step 3](#step-3)
 
 ## <a id="step-1"></a> Exercise 1.12: Anecdotes, step 1
 
@@ -67,3 +68,11 @@ copy[2] += 1;
 ```
 
 Using an array might be the simpler choice in this case.
+
+## <a id="step-3"></a> Exercise 1.14: Anecdotes, step 3
+
+Now implement the final version of the application that displays the anecdote with the largest number of votes:
+
+![Application with most voted anecdote](./docs/anecdotes-with-most-voted.png)
+
+If multiple anecdotes are tied for first place it is sufficient to just show one of them.
