@@ -1,6 +1,7 @@
 # Part 2 - Exercise Course Information
 
 - [Exercise 2.1: Course Information, step 6](#step-6)
+- [Exercise 2.2: Course Information, step 7](#step-7)
 
 ## <a id="step-6"></a> Exercise 2.1: Course Information, step 6
 
@@ -59,6 +60,12 @@ The rendered page can, for example, look as follows:
 You don't need the sum of the exercises yet.
 
 The application must work **regardless of the number of parts a course has**, so make sure the application works if you add or remove parts of a course.
+
+## <a id="step-7"></a> Exercise 2.2: Course Information, step 7
+
+Show also the sum of the exercises of the course.
+
+![Total of exercises](./docs/courseinfo-with-total-of-exercises.png)
 
 ---
 
