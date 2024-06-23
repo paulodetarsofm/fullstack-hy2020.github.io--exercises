@@ -2,6 +2,7 @@
 
 - [Exercise 2.1: Course Information, step 6](#step-6)
 - [Exercise 2.2: Course Information, step 7](#step-7)
+- [Exercise 2.3: Course Information, step 8](#step-8)
 
 ## <a id="step-6"></a> Exercise 2.1: Course Information, step 6
 
@@ -66,6 +67,10 @@ The application must work **regardless of the number of parts a course has**, so
 Show also the sum of the exercises of the course.
 
 ![Total of exercises](./docs/courseinfo-with-total-of-exercises.png)
+
+## <a id="step-8"></a> Exercise 2.3: Course Information, step 8
+
+If you haven't done so already, calculate the sum of exercises with the array method reduce.
 
 ---
 
