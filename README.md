@@ -24,3 +24,4 @@ https://fullstackopen.com/
 ## Part 2
 
 - ### [Course Information](./part2/courseinfo/README.md)
+- ### [Phonebook](./part2/phonebook/README.md)
