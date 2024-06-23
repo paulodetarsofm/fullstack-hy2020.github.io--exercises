@@ -20,3 +20,7 @@ https://fullstackopen.com/
 - ### [Course Information](./part1/courseinfo/README.md)
 - ### [Unicafe](./part1/unicafe/README.md)
 - ### [Anecdotes](./part1/anecdotes/README.md)
+
+## Part 2
+
+- ### [Course Information](./part2/courseinfo/README.md)
