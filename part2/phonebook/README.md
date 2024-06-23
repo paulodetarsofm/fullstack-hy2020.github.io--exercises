@@ -3,6 +3,7 @@
 - [Exercise 2.6: Phonebook, step 1](#step-1)
 - [Exercise 2.7: Phonebook, step 2](#step-2)
 - [Exercise 2.8: Phonebook, step 3](#step-3)
+- [Exercise 2.9: Phonebook, step 4](#step-4)
 
 ## <a id="step-1"></a> Exercise 2.6: Phonebook, step 1
 
@@ -87,6 +88,31 @@ Expand your application by allowing users to add phone numbers to the phone book
 At this point, the application could look something like this. The image also displays the application's state with the help of React developer tools:
 
 ![Phonebook with phone numbers](./docs/phonebook-with-phone-numbers.png)
+
+## <a id="step-4"></a> Exercise 2.9: Phonebook, step 4
+
+Implement a search field that can be used to filter the list of people by name:
+
+![Search by name](./docs/phonebook-search-by-name.png)
+
+You can implement the search field as an _input_ element that is placed outside the HTML form. The filtering logic shown in the image is _case insensitive_, meaning that the search term _arto_ also returns results that contain Arto with an uppercase A.
+
+**NB:** When you are working on new functionality, it's often useful to "hardcode" some dummy data into your application, e.g.
+
+```js
+const App = () => {
+  const [persons, setPersons] = useState([
+    { name: "Arto Hellas", number: "040-123456", id: 1 },
+    { name: "Ada Lovelace", number: "39-44-5323523", id: 2 },
+    { name: "Dan Abramov", number: "12-43-234345", id: 3 },
+    { name: "Mary Poppendieck", number: "39-23-6423122", id: 4 },
+  ]);
+
+  // ...
+};
+```
+
+This saves you from having to manually input data into your application for testing out your new functionality.
 
 ---
 
