@@ -11,8 +11,17 @@ const App = () => {
   const addContact = event => {
     event.preventDefault()
 
+    const nameFound = persons.some(
+      person => newName.toLowerCase().trim() === person.name.toLowerCase()
+    )
+
+    if (nameFound) {
+      window.alert(`${newName} is already added to phonebook`)
+      return
+    }
+
     const newContact = {
-      name: newName
+      name: newName.trim()
     }
 
     const updatedPersons = persons.concat(newContact)

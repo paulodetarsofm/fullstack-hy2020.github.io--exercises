@@ -1,6 +1,7 @@
 # Part 2 - Exercise Phonebook
 
 - [Exercise 2.6: Phonebook, step 1](#step-1)
+- [Exercise 2.7: Phonebook, step 2](#step-2)
 
 ## <a id="step-1"></a> Exercise 2.6: Phonebook, step 1
 
@@ -49,6 +50,20 @@ Note the use of the React developer tools extension in the picture above!
 
 - you can use the person's name as a value of the key property
 - remember to prevent the default action of submitting HTML forms!
+
+## <a id="step-2"></a> Exercise 2.7: Phonebook, step 2
+
+Prevent the user from being able to add names that already exist in the phonebook. JavaScript arrays have numerous suitable methods for accomplishing this task. Keep in mind how object equality works in Javascript.
+
+Issue a warning with the alert command when such an action is attempted:
+
+![Phonebook alert](./docs/phonebook-alert.png)
+
+**Hint:** when you are forming strings that contain values from variables, it is recommended to use a template string:
+
+```js
+`${newName} is already added to phonebook`;
+```
 
 ---
 
