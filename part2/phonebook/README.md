@@ -2,6 +2,7 @@
 
 - [Exercise 2.6: Phonebook, step 1](#step-1)
 - [Exercise 2.7: Phonebook, step 2](#step-2)
+- [Exercise 2.8: Phonebook, step 3](#step-3)
 
 ## <a id="step-1"></a> Exercise 2.6: Phonebook, step 1
 
@@ -64,6 +65,28 @@ Issue a warning with the alert command when such an action is attempted:
 ```js
 `${newName} is already added to phonebook`;
 ```
+
+## <a id="step-3"></a> Exercise 2.8: Phonebook, step 3
+
+Expand your application by allowing users to add phone numbers to the phone book. You will need to add a second _input_ element to the form (along with its own event handler):
+
+```js
+<form>
+  <div>
+    name: <input />
+  </div>
+  <div>
+    number: <input />
+  </div>
+  <div>
+    <button type="submit">add</button>
+  </div>
+</form>
+```
+
+At this point, the application could look something like this. The image also displays the application's state with the help of React developer tools:
+
+![Phonebook with phone numbers](./docs/phonebook-with-phone-numbers.png)
 
 ---
 
