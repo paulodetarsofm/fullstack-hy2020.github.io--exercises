@@ -4,6 +4,7 @@
 - [Exercise 2.2: Course Information, step 7](#step-7)
 - [Exercise 2.3: Course Information, step 8](#step-8)
 - [Exercise 2.4: Course Information, step 9](#step-9)
+- [Exercise 2.5: Course Information, step 10](#step-10)
 
 ## <a id="step-6"></a> Exercise 2.1: Course Information, step 6
 
@@ -131,6 +132,10 @@ const App = () => {
 The application can, for example, look like this:
 
 ![New courses](./docs/courseinfo-with-new-courses.png)
+
+## <a id="step-10"></a> Exercise 2.5: Course Information, step 10
+
+Declare the `Course` component as a separate module, which is imported by the `App` component. You can include all subcomponents of the course in the same module.
 
 ---
 
