@@ -4,6 +4,7 @@
 - [Exercise 2.7: Phonebook, step 2](#step-2)
 - [Exercise 2.8: Phonebook, step 3](#step-3)
 - [Exercise 2.9: Phonebook, step 4](#step-4)
+- [Exercise 2.10: Phonebook, step 5](#step-5)
 
 ## <a id="step-1"></a> Exercise 2.6: Phonebook, step 1
 
@@ -113,6 +114,40 @@ const App = () => {
 ```
 
 This saves you from having to manually input data into your application for testing out your new functionality.
+
+## <a id="step-5"></a> Exercise 2.10: Phonebook, step 5
+
+If you have implemented your application in a single component, refactor it by extracting suitable parts into new components. Maintain the application's state and all event handlers in the `App` root component.
+
+It is sufficient to extract **three** components from the application. Good candidates for separate components are, for example, the search filter, the form for adding new people to the phonebook, a component that renders all people from the phonebook, and a component that renders a single person's details.
+
+The application's root component could look similar to this after the refactoring. The refactored root component below only renders titles and lets the extracted components take care of the rest.
+
+```js
+const App = () => {
+  // ...
+
+  return (
+    <div>
+      <h2>Phonebook</h2>
+
+      <Filter ... />
+
+      <h3>Add a new</h3>
+
+      <PersonForm
+        ...
+      />
+
+      <h3>Numbers</h3>
+
+      <Persons ... />
+    </div>
+  )
+}
+```
+
+**NB:** You might run into problems in this exercise if you define your components "in the wrong place".
 
 ---
 
