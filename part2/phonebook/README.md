@@ -7,6 +7,7 @@
 - [Exercise 2.10: Phonebook, step 5](#step-5)
 - [Exercise 2.11: Phonebook, step 6](#step-6)
 - [Exercise 2.12: Phonebook, step 7](#step-7)
+- [Exercise 2.13: Phonebook, step 8](#step-8)
 
 ## <a id="step-1"></a> Exercise 2.6: Phonebook, step 1
 
@@ -189,6 +190,10 @@ Modify the application such that the initial state of the data is fetched from t
 ## <a id="step-7"></a> Exercise 2.12: Phonebook, step 7
 
 Currently, the numbers that are added to the phonebook are not saved to a backend server. Fix this situation.
+
+## <a id="step-8"></a> Exercise 2.13: Phonebook, step 8
+
+Extract the code that handles the communication with the backend into its own module.
 
 ---
 
