@@ -28,7 +28,7 @@ const PersonForm = ({ handleSubmit, nameValue, handleNameChange, numberValue, ha
   )
 }
 
-const Persons = ({ persons, filterBy }) => {
+const Persons = ({ persons, filterBy, handleClick }) => {
   const filteredPersons = persons.filter(
     person => person.name.toLowerCase().includes(filterBy.toLowerCase().trim())
   )
@@ -36,19 +36,17 @@ const Persons = ({ persons, filterBy }) => {
   return (
     <>
       {filteredPersons.map(person =>
-        <Person key={person.name} person={person} />
+        <p key={person.id}>
+          {person.name} {person.number}
+
+          &nbsp;
+
+          <button type='button' onClick={() => handleClick(person)}>
+            delete
+          </button>
+        </p>
       )}
     </>
-  )
-}
-
-const Person = ({ person }) => {
-  const { name, number } = person
-
-  return (
-    <p key={name}>
-      {name} {number}
-    </p>
   )
 }
 
@@ -104,10 +102,26 @@ const App = () => {
     setNewNumber(event.target.value)
   }
 
+  const handleDelete = ({ id, name }) => {
+    if (window.confirm(`Delete '${name}'?`)) {
+      personsService
+        .remove(id)
+        .catch(() => {
+          window.alert(`We did not find '${name}'`)
+        })
+        .finally(() => {
+          setPersons(persons.filter(person => person.id !== id))
+        })
+    }
+  }
+
   return (
     <div>
       <h2>Phonebook</h2>
-      <Filter filterBy={filterBy} handleChange={handleFilterChange} />
+      <Filter
+        filterBy={filterBy}
+        handleChange={handleFilterChange}
+      />
 
       <h3>Add a new</h3>
       <PersonForm
@@ -119,7 +133,11 @@ const App = () => {
       />
 
       <h3>Numbers</h3>
-      <Persons persons={persons} filterBy={filterBy} />
+      <Persons
+        persons={persons}
+        filterBy={filterBy}
+        handleClick={handleDelete}
+      />
     </div>
   )
 }
