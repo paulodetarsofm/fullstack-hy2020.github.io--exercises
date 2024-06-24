@@ -25,3 +25,4 @@ https://fullstackopen.com/
 
 - ### [Course Information](./part2/courseinfo/README.md)
 - ### [Phonebook](./part2/phonebook/README.md)
+- ### [Countries](./part2/countries/README.md)
