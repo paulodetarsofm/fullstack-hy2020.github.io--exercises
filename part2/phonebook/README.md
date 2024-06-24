@@ -10,6 +10,7 @@
 - [Exercise 2.13: Phonebook, step 8](#step-8)
 - [Exercise 2.14: Phonebook, step 9](#step-9)
 - [Exercise 2.15: Phonebook, step 10](#step-10)
+- [Exercise 2.16: Phonebook, step 11](#step-11)
 
 ## <a id="step-1"></a> Exercise 2.6: Phonebook, step 1
 
@@ -216,6 +217,12 @@ Change the functionality so that if a number is added to an already existing use
 If the person's information is already in the phonebook, the application can ask the user to confirm the action:
 
 ![Replace phone number](./docs/phonebook-replace-phone-number.png)
+
+## <a id="step-11"></a> Exercise 2.16: Phonebook, step 11
+
+Use the improved error message example from part 2 as a guide to show a notification that lasts for a few seconds after a successful operation is executed (a person is added or a number is changed):
+
+![Notifications](./docs/phonebook-notifications.png)
 
 ---
 

@@ -50,11 +50,29 @@ const Persons = ({ persons, filterBy, handleClick }) => {
   )
 }
 
+const Notification = ({ message, type }) => {
+  if (message === null || type === null) {
+    return null
+  }
+
+  return (
+    <div className={`notification ${type}`}>
+      {message}
+    </div>
+  )
+}
+
 const App = () => {
+  const initialNotification = {
+    message: null,
+    type: null,
+  }
+
   const [persons, setPersons] = useState([])
   const [filterBy, setFilterBy] = useState('')
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
+  const [notification, setNotification] = useState(initialNotification)
 
   useEffect(() => {
     personsService
@@ -64,13 +82,27 @@ const App = () => {
       })
   }, [])
 
+  const autoCloseNotification = () => {
+    setTimeout(() => setNotification(initialNotification), 5000)
+  }
+
+  const showErrorMessage = message => {
+    setNotification({ message, type: 'error' })
+    autoCloseNotification()
+  }
+
+  const showSuccessMessage = message => {
+    setNotification({ message, type: 'success' })
+    autoCloseNotification()
+  }
+
+  const resetForm = () => {
+    setNewName('')
+    setNewNumber('')
+  }
+
   const handleSubmit = event => {
     event.preventDefault()
-
-    const resetForm = () => {
-      setNewName('')
-      setNewNumber('')
-    }
 
     const personFound = persons.find(
       person => newName.toLowerCase().trim() === person.name.toLowerCase()
@@ -80,7 +112,7 @@ const App = () => {
       const { id, name, number } = personFound
 
       if (number === newNumber.trim()) {
-        window.alert(`'${name}' is already added to phonebook`)
+        showErrorMessage(`'${name}' is already added to phonebook`)
         return
       }
 
@@ -93,11 +125,12 @@ const App = () => {
         personsService
           .update(id, changedPerson)
           .then(updatedPerson => {
+            showSuccessMessage(`Updated '${changedPerson.name}'`)
             setPersons(persons.map(person => person.id === id ? updatedPerson : person))
             resetForm()
           })
           .catch(() => {
-            window.alert(`Unable to update contact '${name}', please try again`)
+            showErrorMessage(`Unable to update the contact '${name}'`)
           })
       }
     } else {
@@ -109,11 +142,28 @@ const App = () => {
       personsService
         .create(newContact)
         .then(createdPerson => {
+          showSuccessMessage(`Added '${newContact.name}'`)
           setPersons(persons.concat(createdPerson))
           resetForm()
         })
         .catch(() => {
-          window.alert('Unable to create new contact, please try again')
+          showErrorMessage('Unable to create new contact, please try again')
+        })
+    }
+  }
+
+  const handleDelete = ({ id, name }) => {
+    if (window.confirm(`Delete '${name}'?`)) {
+      personsService
+        .remove(id)
+        .then(deletedPerson => {
+          showSuccessMessage(`Deleted '${deletedPerson.name}'`)
+        })
+        .catch(() => {
+          showErrorMessage(`The contact '${name}' was not found`)
+        })
+        .finally(() => {
+          setPersons(persons.filter(person => person.id !== id))
         })
     }
   }
@@ -130,22 +180,12 @@ const App = () => {
     setNewNumber(event.target.value)
   }
 
-  const handleDelete = ({ id, name }) => {
-    if (window.confirm(`Delete '${name}'?`)) {
-      personsService
-        .remove(id)
-        .catch(() => {
-          window.alert(`We did not find '${name}'`)
-        })
-        .finally(() => {
-          setPersons(persons.filter(person => person.id !== id))
-        })
-    }
-  }
-
   return (
     <div>
       <h2>Phonebook</h2>
+
+      <Notification message={notification.message} type={notification.type} />
+
       <Filter
         filterBy={filterBy}
         handleChange={handleFilterChange}
