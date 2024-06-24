@@ -160,7 +160,7 @@ const App = () => {
           showSuccessMessage(`Deleted '${deletedPerson.name}'`)
         })
         .catch(() => {
-          showErrorMessage(`The contact '${name}' was not found`)
+          showErrorMessage(`Information of '${name}' has already been removed from server`)
         })
         .finally(() => {
           setPersons(persons.filter(person => person.id !== id))
