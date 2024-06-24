@@ -82,11 +82,13 @@ const App = () => {
       number: newNumber.trim(),
     }
 
-    const updatedPersons = persons.concat(newContact)
-
-    setPersons(updatedPersons)
-    setNewName('')
-    setNewNumber('')
+    axios
+      .post('http://localhost:3001/persons', newContact)
+      .then(response => {
+        setPersons(persons.concat(response.data))
+        setNewName('')
+        setNewNumber('')
+      })
   }
 
   const handleFilterChange = event => {

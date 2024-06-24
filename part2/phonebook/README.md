@@ -6,6 +6,7 @@
 - [Exercise 2.9: Phonebook, step 4](#step-4)
 - [Exercise 2.10: Phonebook, step 5](#step-5)
 - [Exercise 2.11: Phonebook, step 6](#step-6)
+- [Exercise 2.12: Phonebook, step 7](#step-7)
 
 ## <a id="step-1"></a> Exercise 2.6: Phonebook, step 1
 
@@ -184,6 +185,10 @@ Store the initial state of the application in the file `db.json`, which should b
 Start `json-server` on port 3001 and make sure that the server returns the list of people by going to the address http://localhost:3001/persons in the browser.
 
 Modify the application such that the initial state of the data is fetched from the server using the axios-library. Complete the fetching with an Effect hook.
+
+## <a id="step-7"></a> Exercise 2.12: Phonebook, step 7
+
+Currently, the numbers that are added to the phonebook are not saved to a backend server. Fix this situation.
 
 ---
 
