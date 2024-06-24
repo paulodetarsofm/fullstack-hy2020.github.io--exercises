@@ -9,6 +9,7 @@
 - [Exercise 2.12: Phonebook, step 7](#step-7)
 - [Exercise 2.13: Phonebook, step 8](#step-8)
 - [Exercise 2.14: Phonebook, step 9](#step-9)
+- [Exercise 2.15: Phonebook, step 10](#step-10)
 
 ## <a id="step-1"></a> Exercise 2.6: Phonebook, step 1
 
@@ -207,6 +208,14 @@ The associated resource for a person in the backend can be deleted by making an 
 You can make an HTTP DELETE request with the axios library in the same way that we make all of the other requests.
 
 **NB:** You can't use the name `delete` for a variable because it's a reserved word in JavaScript.
+
+## <a id="step-10"></a> Exercise 2.15: Phonebook, step 10
+
+Change the functionality so that if a number is added to an already existing user, the new number will replace the old number. It's recommended to use the HTTP PUT method for updating the phone number.
+
+If the person's information is already in the phonebook, the application can ask the user to confirm the action:
+
+![Replace phone number](./docs/phonebook-replace-phone-number.png)
 
 ---
 

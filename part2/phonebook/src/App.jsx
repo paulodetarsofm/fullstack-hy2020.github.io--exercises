@@ -67,27 +67,55 @@ const App = () => {
   const handleSubmit = event => {
     event.preventDefault()
 
-    const nameFound = persons.some(
+    const resetForm = () => {
+      setNewName('')
+      setNewNumber('')
+    }
+
+    const personFound = persons.find(
       person => newName.toLowerCase().trim() === person.name.toLowerCase()
     )
 
-    if (nameFound) {
-      window.alert(`'${newName}' is already added to phonebook`)
-      return
-    }
+    if (personFound) {
+      const { id, name, number } = personFound
 
-    const newContact = {
-      name: newName.trim(),
-      number: newNumber.trim(),
-    }
+      if (number === newNumber.trim()) {
+        window.alert(`'${name}' is already added to phonebook`)
+        return
+      }
 
-    personsService
-      .create(newContact)
-      .then(personCreated => {
-        setPersons(persons.concat(personCreated))
-        setNewName('')
-        setNewNumber('')
-      })
+      if (window.confirm(`'${name}' is already added to phonebook, replace the old number with a new one?`)) {
+        const changedPerson = {
+          ...personFound,
+          number: newNumber.trim()
+        }
+
+        personsService
+          .update(id, changedPerson)
+          .then(updatedPerson => {
+            setPersons(persons.map(person => person.id === id ? updatedPerson : person))
+            resetForm()
+          })
+          .catch(() => {
+            window.alert(`Unable to update contact '${name}', please try again`)
+          })
+      }
+    } else {
+      const newContact = {
+        name: newName.trim(),
+        number: newNumber.trim(),
+      }
+
+      personsService
+        .create(newContact)
+        .then(createdPerson => {
+          setPersons(persons.concat(createdPerson))
+          resetForm()
+        })
+        .catch(() => {
+          window.alert('Unable to create new contact, please try again')
+        })
+    }
   }
 
   const handleFilterChange = event => {
