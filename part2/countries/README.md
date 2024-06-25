@@ -2,6 +2,7 @@
 
 - [Exercise 2.18: Countries, step 1](#step-1)
 - [Exercise 2.19: Countries, step 2](#step-2)
+- [Exercise 2.20: Countries, step 3](#step-3)
 
 ## <a id="step-1"></a> Exercise 2.18: Countries, step 1
 
@@ -28,6 +29,14 @@ When there is only one country matching the query, then the basic data of the co
 Improve on the application in the previous exercise, such that when the names of multiple countries are shown on the page there is a button next to the name of the country, which when pressed shows the view for that country:
 
 !["Show" button](./docs/countries-show-button.png)
+
+## <a id="step-3"></a> Exercise 2.20: Countries, step 3
+
+Add to the view showing the data of a single country, the weather report for the capital of that country. There are dozens of providers for weather data. One suggested API is https://openweathermap.org. Note that it might take some minutes until a generated API key is valid.
+
+![Weather information](./docs/countries-weather.png)
+
+**NB:** You need an api-key to use almost every weather service. Do not save the api-key to source control! Nor hardcode the api-key to your source code. Instead use an [environment variable](https://vitejs.dev/guide/env-and-mode.html) to save the key.
 
 ---
 
