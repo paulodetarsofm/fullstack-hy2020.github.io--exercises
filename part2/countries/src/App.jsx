@@ -10,14 +10,20 @@ const Filter = ({ filterBy, handleChange }) => {
   )
 }
 
-const Countries = ({ countries, filterBy }) => {
-  if (!filterBy) {
+const Countries = ({ countries, filterBy, currentCountry, handleCurrentCountry }) => {
+  if (!filterBy && !currentCountry) {
     return null
   }
 
-  const filteredCountries = countries.filter(
-    country => country.name.common.toLowerCase().includes(filterBy.toLowerCase().trim())
-  )
+  const filteredCountries = countries.filter(country => {
+    const countryName = country.name.common.toLowerCase()
+
+    // If we have a country defined, we will only display it, otherwise, it runs the filter using the provided text
+    return (
+      (currentCountry && countryName === currentCountry.name.common.toLowerCase()) ||
+      (!currentCountry && countryName.includes(filterBy.toLowerCase().trim()))
+    )
+  })
 
   switch (true) {
     case filteredCountries.length < 1:
@@ -39,24 +45,20 @@ const Countries = ({ countries, filterBy }) => {
       return filteredCountries.map(country =>
         <div key={country.cca2}>
           {country.name.common}
+          <button type='button' onClick={() => handleCurrentCountry(country)}>show</button>
         </div>
       )
   }
 }
 
 const Country = ({ country }) => {
-  const flagStyles = {
-    fontSize: '10em',
-    lineHeight: 1,
-  }
-
   return (
     <>
       <h1>{country.name.common}</h1>
       {country.capital   && <div>capital {country.capital.join(', ')}</div>}
       {country.area      && <div>area {country.area}</div>}
       {country.languages && <Languages languages={country.languages} />}
-      {country.flag      && <div style={flagStyles}>{country.flag}</div>}
+      {country.flag      && <Flag flag={country.flag} />}
     </>
   )
 }
@@ -74,9 +76,21 @@ const Languages = ({ languages }) => {
   )
 }
 
+const Flag = ({ flag }) => {
+  const flagStyles = {
+    fontSize: '10em',
+    lineHeight: 1,
+  }
+
+  return (
+    <div style={flagStyles}>{flag}</div>
+  )
+}
+
 const App = () => {
   const [countries, setCountries] = useState([])
   const [filterBy, setFilterBy] = useState('')
+  const [currentCountry, setCurrentCountry] = useState(null)
 
   useEffect(() => {
     countriesService
@@ -88,6 +102,11 @@ const App = () => {
 
   const handleFilterChange = event => {
     setFilterBy(event.target.value)
+    setCurrentCountry(null)
+  }
+
+  const handleCurrentCountry = country => {
+    setCurrentCountry(country)
   }
 
   return (
@@ -100,6 +119,8 @@ const App = () => {
       <Countries
         countries={countries}
         filterBy={filterBy}
+        currentCountry={currentCountry}
+        handleCurrentCountry={handleCurrentCountry}
       />
     </>
   )

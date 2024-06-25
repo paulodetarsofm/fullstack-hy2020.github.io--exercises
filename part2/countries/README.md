@@ -1,6 +1,7 @@
 # Part 2 - Exercise Countries
 
 - [Exercise 2.18: Countries, step 1](#step-1)
+- [Exercise 2.19: Countries, step 2](#step-2)
 
 ## <a id="step-1"></a> Exercise 2.18: Countries, step 1
 
@@ -21,6 +22,12 @@ When there is only one country matching the query, then the basic data of the co
 ![Country details](./docs/countries-details.png)
 
 **NB:** It is enough that your application works for most countries. Some countries, like _Sudan_, can be hard to support since the name of the country is part of the name of another country, _South Sudan_. You don't need to worry about these edge cases.
+
+## <a id="step-2"></a> Exercise 2.19: Countries, step 2
+
+Improve on the application in the previous exercise, such that when the names of multiple countries are shown on the page there is a button next to the name of the country, which when pressed shows the view for that country:
+
+!["Show" button](./docs/countries-show-button.png)
 
 ---
 
